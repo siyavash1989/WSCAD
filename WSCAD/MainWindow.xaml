@@ -1,0 +1,31 @@
+﻿<Window x:Class="WSCAD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:svg="clr-namespace:SharpVectors.Runtime;assembly=SharpVectors.Runtime.Wpf"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+        xmlns:local="clr-namespace:WSCAD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid VerticalAlignment="Top">
+        <Menu HorizontalAlignment="Stretch"
+          VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <Label Name="label" Content="Please select your file..." Width="150"></Label>
+                <Button Width="50" Content="Browse" Click="Button_Click"></Button>
+            </StackPanel>
+            <Label Content="Zoom:"></Label>
+            <Slider ValueChanged="Slider_ValueChanged"
+                Thumb.DragStarted="Slider_DragStarted"
+                Thumb.DragCompleted="Slider_DragCompleted"
+                    Width="100px"
+                    Minimum="100"
+                    Maximum="300"/>
+            <Label Name="zoomlabel" Content="100%"></Label>
+        </Menu>
+        <local:ZoomBorder x:Name="border" ClipToBounds="True" Background="#eee" Margin="0,28,0,-409">
+            <svgc:SvgViewbox Name="Viewer" AutoSize="False"></svgc:SvgViewbox>
+        </local:ZoomBorder>
+    </Grid>
+</Window>

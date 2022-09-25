@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GrapeCity.Documents.Imaging" Version="5.2.0.802" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SharpVectors.Reloaded" Version="1.8.0" />
+    <PackageReference Include="SharpVectors.Wpf" Version="1.8.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.2" />
+    <PackageReference Include="SvgToXamlConverter" Version="0.10.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WSCAD.Business\WSCAD.Business.csproj" />
+    <ProjectReference Include="..\WSCAD.Models\WSCAD.Models.csproj" />
+  </ItemGroup>
+
+</Project>
