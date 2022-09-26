@@ -24,5 +24,7 @@ namespace WSCAD.Business.converter
             string[] parts = input.Split(';');            
             return Color.FromArgb(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]), int.Parse(parts[3]));
         }
+
+       
     }
 }

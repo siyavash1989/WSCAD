@@ -1,4 +1,5 @@
 ﻿using GrapeCity.Documents.Svg;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace WSCAD.Models.Entities
@@ -25,25 +26,27 @@ namespace WSCAD.Models.Entities
             
             if (Filled)
             {
+                var attrs = new List<SvgCustomAttribute>();
+                attrs.Add(new SvgCustomAttribute("style","fill:"+ Color.ColorToColorString() + ";stroke:" + Color.ColorToColorString()));
                 innerCircle = new SvgCircleElement()
                 {
                     CenterX = new SvgLength(Center.X, SvgLengthUnits.Pixels),
                     CenterY = new SvgLength(Center.Y, SvgLengthUnits.Pixels),
                     Radius = new SvgLength(Radius, SvgLengthUnits.Pixels),
-                    Fill = new SvgPaint(Color),
-                    FillOpacity = 1,
-                    Stroke = new SvgPaint(Color)
+                    CustomAttributes = attrs
                 };
             }
             else
             {
+                var attrs = new List<SvgCustomAttribute>();
+                attrs.Add(new SvgCustomAttribute("style", "fill:rgba(0,0,0,0);stroke:" + Color.ColorToColorString()));
+
                 innerCircle = new SvgCircleElement()
                 {
                     CenterX = new SvgLength(Center.X, SvgLengthUnits.Pixels),
                     CenterY = new SvgLength(Center.Y, SvgLengthUnits.Pixels),
                     Radius = new SvgLength(Radius, SvgLengthUnits.Pixels),
-                    FillOpacity = 0,
-                    Stroke = new SvgPaint(Color)
+                    CustomAttributes = attrs
                 };
             }
 

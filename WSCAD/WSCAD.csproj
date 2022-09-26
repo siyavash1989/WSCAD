@@ -8,6 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="1386617449.svg" />
+    <None Remove="landing.svg" />
+    <None Remove="landing_organization.svg" />
+    <None Remove="test.svg" />
+    <None Remove="test2.svg" />
+    <None Remove="test3.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="GrapeCity.Documents.Imaging" Version="5.2.0.802" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="SharpVectors.Reloaded" Version="1.8.0" />

@@ -24,8 +24,8 @@
                     Maximum="300"/>
             <Label Name="zoomlabel" Content="100%"></Label>
         </Menu>
-        <local:ZoomBorder x:Name="border" ClipToBounds="True" Background="#eee" Margin="0,28,0,-409">
-            <svgc:SvgViewbox Name="Viewer" AutoSize="False"></svgc:SvgViewbox>
+        <local:ZoomBorder x:Name="border" ClipToBounds="True" Background="#eee" Margin="0,28,0,0">
+            <svgc:SvgViewbox Name="Viewer" TextAsGeometry="True"/>
         </local:ZoomBorder>
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using GrapeCity.Documents.Svg;
 using System;
+using System.Collections.Generic;
 using WSCAD.Models.CommonModels;
 namespace WSCAD.Models.Entities
 {
@@ -32,21 +33,24 @@ namespace WSCAD.Models.Entities
             var handles = new SvgPathElement();
             if (Filled)
             {
+                var attrs = new List<SvgCustomAttribute>();
+                attrs.Add(new SvgCustomAttribute("style", "fill:" + Color.ColorToColorString() + ";stroke:" + Color.ColorToColorString()));
+
                 handles = new SvgPathElement()
                 {
                     PathData = pb.ToPathData(),
-                    Fill = new SvgPaint(Color),
-                    FillOpacity = 1,
-                    Stroke = new SvgPaint(Color),
+                    CustomAttributes = attrs
                 };
             }
             else
             {
+                var attrs = new List<SvgCustomAttribute>();
+                attrs.Add(new SvgCustomAttribute("style", "fill:rgba(0,0,0,0);stroke:" + Color.ColorToColorString()));
+
                 handles = new SvgPathElement()
                 {
                     PathData = pb.ToPathData(),
-                    FillOpacity = 0,
-                    Stroke = new SvgPaint(Color),
+                    CustomAttributes = attrs
                 };
             }
             

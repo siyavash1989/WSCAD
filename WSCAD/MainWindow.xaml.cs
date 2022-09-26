@@ -11,6 +11,7 @@ using WSCAD.helpers;
 using WSCAD.Business.Factory;
 using WSCAD.Models.Entities;
 using WSCAD.Models.CommonModels;
+using System.Xml;
 
 namespace WSCAD
 {
@@ -23,13 +24,14 @@ namespace WSCAD
         {
             InitializeComponent();
         }
+        
         private bool dragStarted = false;
 
         private void Slider_DragCompleted(object sender, DragCompletedEventArgs e)
-        {
+        {          
             zoomlabel.Content = Convert.ToInt32(((Slider)sender).Value)+"%";
             //dear Milosava, here is for changing slider zoom 
-            //it's for further developement
+            //it's for further developement       
             dragStarted = false;
         }
 
@@ -48,6 +50,7 @@ namespace WSCAD
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.DefaultExt = ".json";
             fileDialog.Filter = "JSON documents (.json)|*.json|XML documents (.xml)|*.xml|"
@@ -92,9 +95,11 @@ namespace WSCAD
 
                 svgDoc.RootSvg.ViewBox = view;
 
-                svgDoc.Save(@".\Output\test\test.svg");
+                
 
-                Viewer.Source = new Uri(@"\output\test\test.svg",UriKind.Relative);
+                svgDoc.Save(@".\Output\test\test.svg", new XmlWriterSettings() { Indent = true, OmitXmlDeclaration = true  });
+
+               Viewer.Source = new Uri(@"\output\test\test.svg",UriKind.Relative);
 
                 sr.Close();
             }
